@@ -54,22 +54,6 @@ function ourTime(timestamp) {
 let whatTimeElement = document.querySelector("#what-time");
 whatTimeElement.innerHTML = ourTime(currentDay)
 
-function findCity(event) {
-  event.preventDefault();
-  let cityElement = document.querySelector("#city");
-  let searchCity = document.querySelector("#search-city");
-  cityElement.innerHTML = searchCity.value;
-
-  searchCity(searchCity.value);
-}
-
-function searchCity(city) {
-  let apiKey = "06e5d3dda0232566f39a1df37e2d5cdd";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchCity.value}&appid=${apiKey}&units=metric`;
-
-  axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemp);
-}
-
 function showTemp(response) {
   let city = response.data.name;
   let temp = Math.round(response.data.main.temp);
@@ -108,6 +92,22 @@ function getCurrentPosition() {
 let currentButton = document.querySelector("#current-button");
 currentButton.addEventListener("click", getCurrentPosition);
 
+function findCity(event) {
+  event.preventDefault();
+  let cityElement = document.querySelector("#city");
+  let searchCity = document.querySelector("#search-city");
+  cityElement.innerHTML = searchCity.value;
+
+  searchCity(searchCity.value);
+}
+
+function searchCity(city) {
+  let apiKey = "06e5d3dda0232566f39a1df37e2d5cdd";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchCity.value}&appid=${apiKey}&units=metric`;
+
+  axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemp);
+}
+
 function showFahrenheitTemperature(event) {
 event.preventDefault();
   let temperatureElement = document.querySelector("#temp-now");
@@ -138,5 +138,5 @@ fahrenheit.addEventListener("click", showFahrenheitTemperature);
 let celsius = document.querySelector("#celsius");
 celsius.addEventListener("click", showCelsiusTemperature);
 
-
+searchCity("Detroit");
 
