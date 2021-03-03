@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>My First Weather App</title>
+  
   <meta charset="UTF-8">
   <meta name="=viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -9,6 +9,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Hind:wght@500&family=Merriweather+Sans&family=Yusei+Magic&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="src/styles.css" />
+
+  title>My First Weather App</title>
  </head>
 
 <body>
@@ -58,7 +60,7 @@
         </div>
     <!--Big Temp -->
       <div class="col-7 big-temp">
-        <div class="card rt-wx">
+        <div class="card rightside">
             <img src="" alt="Clear" class="icon" id="icon"/>
               <h2 class="tempNow" id="temp-now"><span>&#176</span></h2>
               <span class="units"><a href="#" id="celsius" class="active"><strong>
@@ -66,6 +68,104 @@
               <h3 class="skyNow" id="sky-now">Sunny</h3>
         </div>
       </div>
+    <!-- Plan Your Day Temps throughout the day -->
+        <div class="row wx-planner" id="wx-planner">
+          <div class="col-3">
+            <div class="day-temps">
+              <div class="card">
+                <h5 class= "title2">6 AM</h5>
+                  <div class="card-body2">
+                    <i class="fas fa-cloud centre-wx"></i>
+                      <p class="card-text">37&#176</p>
+                  </div>
+              </div>
+            </div>
+          </div>    
+          <div class="col-3">
+            <div class="day-temps">
+              <div class="card">
+                <h5 class="title2">NOON</h5>
+                  <div class="card-body2">
+                    <i class="fas fa-sun centre-wx"></i>
+                      <p class="card-text">37&#176</p>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="day-temps">
+              <div class="card">
+                <h5 class="title2">6 PM</h5>
+                  <div class="card-body2">
+                    <i class="fas fa-cloud-sun centre-wx"></i>
+                      <p class="card-text">37&#176</p>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="day-temps">
+              <div class="card">
+                  <h5 class="title2">10 PM</h5>
+                    <div class="card-body2">
+                      <i class="fas fa-cloud-moon centre-wx"></i>
+                        <p class="card-text">37&#176</p>
+                    </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 5-day Planner -->
+      <div class="row wx-forecast" id="wx-forecast">
+       <div class="col">
+          <div class="card">
+            <h4 class="title3" id="day-one">Friday</h4>
+              <div class="card-body3">
+                <i class="fas fa-sun dayone" id="icon1"></i>
+                  <p class="card-text3"><strong id="temp-max1">37</strong> / <em id="temp-min1">35</em></p>
+              </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <h4 class="title3" id="day-two">Saturday</h4>
+              <div class="card-body3">
+              <i class="fas fa-sun daytwo" id=icon2></i>
+                <p class="card-text3"><strong id="temp-max2">37</strong> / <em id="temp-min2">35</em></p>
+              </div>
+          </div>
+        </div>
+          <div class="col">
+            <div class="card">
+              <h4 class="title3" id="day-three">Sunday</h4>
+                <div class="card-body3">
+                <i class="fas fa-sun daythree" id="icon3"></i>
+                  <p class="card-text3"><strong d="temp-max3">37</strong> / <em id="temp-min3">35</em></p>
+                </div>
+            </div>
+        </div>
+          <div class="col">
+            <div class="card">
+              <h4 class="title3" id="day-four">Monday</h4>
+                <div class="card-body3">
+                <i class="fas fa-sun dayfour" id="icon4"></i>
+                  <p class="card-text3"><strong id="temp-max4">37</strong> / <em id="temp-min4">35</em></p>
+                </div>
+            </div>
+        </div>
+          <div class="col">
+            <div class="card">
+              <h4 class="title3" id="day-five">Tuesday</h4>
+                <div class="card-body3">
+                <i class="fas fa-sun dayfive" id="icon5"></i>
+                  <p class="card-text3"><strong id="temp-max5">37</strong> / <em id="temp-min5">35</em></p>
+                </div>
+            </div>
+          </div>
+        </div>
+     <div class="myinfo"><a href="https://github.com/coderGriff66/first-weather-app-vanilla" target="_blank">Open-source code</a>&nbsp;<span>by Jennifer Griffin</span></div>
+    </div>
+</div>
 
 
 
