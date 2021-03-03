@@ -54,7 +54,8 @@ function ourTime(timestamp) {
 let whatTimeElement = document.querySelector("#what-time");
 whatTimeElement.innerHTML = ourTime(currentDay)
 
-function findCity(city) {
+function findCity(event) {
+  event.preventDefault();
   let cityElement = document.querySelector("#city");
   let searchCity = document.querySelector("#search-city");
   cityElement.innerHTML = searchCity.value;
@@ -69,6 +70,9 @@ function searchCity(city) {
   axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemp);
 }
 
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", findCity);
+
 function showTemp(response) {
   let city = response.data.name;
   let temp = Math.round(response.data.main.temp);
@@ -79,7 +83,7 @@ function showTemp(response) {
   let h3 = document.querySelector("#sky-now");
   h3.innerHTML = response.data.weather[0].description;
   let iconElement = document.querySelector("#icon");
-document.querySelector("#feels").innerHTML = Math.round(response.data.main.feels_like);
+  document.querySelector("#feels").innerHTML = Math.round(response.data.main.feels_like);
   document.querySelector("#barom").innerHTML = response.data.main.pressure.toFixed(2);
   document.querySelector("#humid").innerHTML = response.data.main.humidity;
   document.querySelector("#winds").innerHTML = Math.round(response.data.wind.speed);
