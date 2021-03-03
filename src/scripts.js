@@ -70,9 +70,6 @@ function searchCity(city) {
   axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemp);
 }
 
-let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", findCity);
-
 function showTemp(response) {
   let city = response.data.name;
   let temp = Math.round(response.data.main.temp);
@@ -104,6 +101,36 @@ function showPosition(position) {
 function getCurrentPosition() {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
+
+function showFahrenheitTemperature(event) {
+event.preventDefault();
+  let temperatureElement = document.querySelector("#temp-now");
+  let fahrenheitTemperature = ("celsiusTemperature" * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(showFahrenheitTemperature);
+  
+  celsius.classList.remove("active");
+  fahrenheit.classList.add("active");
+}
+
+function showCelsiusTemperature(event) {
+event.preventDefault(); 
+  let = temperatureElement = document.querySelector("#temp-now");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+
+ celsius.classList.add("active");
+ fahrenheit.classList.remove("active"); 
+}
+
+let celsiusTemperature = null;
+
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", findCity);
+
+let fahrenheit = document.querySelector("#fahrenheit");
+fahrenheit.addEventListener("click", showFahrenheitTemperature);
+
+let celsius = document.querySelector("#celsius");
+celsius.addEventListener("click", showCelsiusTemperature);
 
 let currentButton = document.querySelector("#current-button");
 currentButton.addEventListener("click", getCurrentPosition);

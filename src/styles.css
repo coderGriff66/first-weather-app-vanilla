@@ -83,9 +83,9 @@ footer {
   top: 20px;
 }
 .icon {
-  size: 75px;
+  size: 50%;
   position: relative;
-  left: 20px;
+  left: -20px;
   top: -15px;
 }
 .units {
@@ -132,7 +132,7 @@ footer {
 }
 .wx-planner {
   margin-top: 0;
-  padding-top: 0;
+  padding-top: 10px;
 }
 .wx-planner,
 .wx-forecast {
@@ -150,4 +150,5 @@ footer {
 }
 .my-info {
   font-weight: 500;
+  padding-bottom: 25px;
 }
