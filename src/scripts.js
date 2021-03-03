@@ -80,6 +80,9 @@ function showTemp(response) {
   let h3 = document.querySelector("#sky-now");
   h3.innerHTML = response.data.weather[0].description;
   let iconElement = document.querySelector("#icon");
+
+  celsiusTemperature = response.data.main.temp;
+
   document.querySelector("#feels").innerHTML = Math.round(response.data.main.feels_like);
   document.querySelector("#barom").innerHTML = response.data.main.pressure.toFixed(2);
   document.querySelector("#humid").innerHTML = response.data.main.humidity;
@@ -101,6 +104,9 @@ function showPosition(position) {
 function getCurrentPosition() {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
+
+let currentButton = document.querySelector("#current-button");
+currentButton.addEventListener("click", getCurrentPosition);
 
 function showFahrenheitTemperature(event) {
 event.preventDefault();
@@ -132,6 +138,5 @@ fahrenheit.addEventListener("click", showFahrenheitTemperature);
 let celsius = document.querySelector("#celsius");
 celsius.addEventListener("click", showCelsiusTemperature);
 
-let currentButton = document.querySelector("#current-button");
-currentButton.addEventListener("click", getCurrentPosition);
+
 
