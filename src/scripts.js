@@ -54,8 +54,7 @@ function ourTime(timestamp) {
 let whatTimeElement = document.querySelector("#what-time");
 whatTimeElement.innerHTML = ourTime(currentDay)
 
-function findCity(event) {
-  
+function findCity(city) {
   let cityElement = document.querySelector("#city");
   let searchCity = document.querySelector("#search-city");
   cityElement.innerHTML = searchCity.value;
