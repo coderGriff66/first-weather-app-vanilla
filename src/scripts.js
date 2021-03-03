@@ -53,3 +53,55 @@ function ourTime(timestamp) {
 
 let whatTimeElement = document.querySelector("#what-time");
 whatTimeElement.innerHTML = ourTime(currentDay)
+
+function findCity(event) {
+  
+  let cityElement = document.querySelector("#city");
+  let searchCity = document.querySelector("#search-city");
+  cityElement.innerHTML = searchCity.value;
+
+  searchCity(searchCity.value);
+}
+
+function searchCity(city) {
+  let apiKey = "06e5d3dda0232566f39a1df37e2d5cdd";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchCity.value}&appid=${apiKey}&units=metric`;
+
+  axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemp);
+}
+
+function showTemp(response) {
+  let city = response.data.name;
+  let temp = Math.round(response.data.main.temp);
+  let h2 = document.querySelector("#temp-now");
+  h2.innerHTML = temp;
+  let h1 = document.querySelector("#city");
+  h1.innerHTML = city;
+  let h3 = document.querySelector("#sky-now");
+  h3.innerHTML = response.data.weather[0].description;
+  let iconElement = document.querySelector("#icon");
+document.querySelector("#feels").innerHTML = Math.round(response.data.main.feels_like);
+  document.querySelector("#barom").innerHTML = response.data.main.pressure.toFixed(2);
+  document.querySelector("#humid").innerHTML = response.data.main.humidity;
+  document.querySelector("#winds").innerHTML = Math.round(response.data.wind.speed);
+  iconElement.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  iconElement.setAttribute("alt", response.data.weather[0].description);
+}
+
+function showPosition(position) {
+  let latitude = position.coords.latitude;
+  let longitude = position.coords.longitude;
+  let apiKey = "06e5d3dda0232566f39a1df37e2d5cdd";
+  let endPoint = "https://api.openweathermap.org/data/2.5/weather?q";
+  let apiUrl = `${endPoint}&lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+
+  axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemp);
+}
+
+function getCurrentPosition() {
+  navigator.geolocation.getCurrentPosition(showPosition);
+}
+
+let currentButton = document.querySelector("#current-button");
+currentButton.addEventListener("click", getCurrentPosition);
+
