@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>My First Weather App</title>
+  <meta charset="UTF-8">
+  <meta name="=viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://kit.fontawesome.com/78d16cafc2.js" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Hind:wght@500&family=Merriweather+Sans&family=Yusei+Magic&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="src/styles.css" />
+ </head>
+
+<body>
+ 
+<div class="container">
+  <div class ="weatherApp">
+    <!-- Title and date -->
+    <div class="row">
+      <div class="col-6">
+        <h3 class="top-header">Your Weather Forecast</h3>
+      </div>
+          <div class="col-6">
+            <ul class="what-is-today">
+               <li id="what-date"><strong>Saturday, Jan. 30, 2021</strong></li>
+               <li id="what-time"><strong>7:30pm</strong></li>
+            </ul>
+          </div>
+      </div>
+  <!-- Search Form and Current Location -->
+    <form class="search-form" id="search-form">
+      <div class="row your-choice">
+        <div class="col-7">
+          <input type="search" placeholder="ENTER YOR CITY" autofocus="on" autocomplete="off" id="search-city" class="form-control shadow sm border=0">
+        </div>
+          <div class="col-3">
+            <input type="submit" value="Search" class="btn btn-success" class="form-control shadow sm border=1"/>
+          </div>
+       <div class="col-2">
+          <button class="current-button" id="current-button">CURRENT</button>
+          </div>
+        </div>
+    </form>
+        <div class="city-chosen">
+          <h1 id="city">Detroit</h1>
+        </div>
+    <!-- Current Conditions -->
+      <div class="row">
+        <div class="col-5">
+            <div class="card leftside">
+              <ul class="conditions" id="conditions">
+                <li><span>Feels Like: <strong id="feels">38</strong></span><span><strong>&#176</strong></span></li>
+                <li><span>Barometer: <strong id="barom">29.98</strong></span></li>
+                <li><span>Humidity: <strong id="humid">46</strong></span><span><strong>%</strong></span></li>
+                <li><span>Windspeed: <span><strong id="winds">10</strong></span><span><strong>&nbsp;km/h</strong></span></li>
+              </ul>
+            </div>
+        </div>
+    <!--Big Temp -->
+      <div class="col-7 big-temp">
+        <div class="card rt-wx">
+            <img src="" alt="Clear" class="icon" id="icon"/>
+              <h2 class="tempNow" id="temp-now"><span>&#176</span></h2>
+              <span class="units"><a href="#" id="celsius" class="active"><strong>
+                &#176C</strong></a>&nbsp; | &nbsp<a href="#" id="fahrenheit" class="active"><strong>&#176F</strong></a></span>
+              <h3 class="skyNow" id="sky-now">Sunny</h3>
+        </div>
+      </div>
+
+
+
+    </div>
+</div>
+  <script src="src/scripts.js"></script>
+</body>
+</html>
