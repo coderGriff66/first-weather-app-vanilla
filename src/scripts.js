@@ -48,7 +48,7 @@ function ourTime(timestamp) {
 //  if (minutes < 10) {
 //    minutes = `0${minutes}`;
 //}
-  return formatHours(timestamp);
+  return `${day} ${formatHours(timestamp)}`;
 }
 
 function formatHours(timestamp) {
