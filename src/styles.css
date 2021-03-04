@@ -22,7 +22,8 @@ h3 {
   font-weight: bold;
   text-align: center;
   line-height: 1;
-  padding-bottom: 10px;
+  margin-bottom: 0;
+  padding-bottom: 0px;
   text-transform: capitalize;
 }
 h4 {
@@ -72,27 +73,33 @@ footer {
   border: rgb(12, 0, 124) solid 2px;
   border-radius: 4px;
 }
+.big-temp {
+  padding: opx;
+  max-height: 18rem;
+  border: none;
+}
 .rightside {
   background: none;
   border: none;
 }
 .tempNow {
   font-size: 75px;
+  margin-bottom: 0;
   position: relative;
-  right: -155px;
-  top: 20px;
+  top: -120px;
+  right: -150px;
+  padding: 0;
 }
 .icon {
-  size: 50%;
+  image-size: 75px;
   position: relative;
-  line-height: 10px;
+  top: -30px;
   left: -20px;
-  top: -15px;
 }
 .units {
   position: relative;
-  top: -10px;
-  right: -170px;
+  top: -210px;
+  right: -210px;
 }
 .active {
   color: black;
@@ -129,6 +136,8 @@ footer {
   line-height: 2.5;
 }
 .skyNow {
+  position: relative;
+  top: -120px;
   font-size: 40px;
 }
 .wx-planner {
