@@ -51,7 +51,7 @@ function ourTime(timestamp) {
   return formatHours(timestamp);
 }
 
-functions formatHours(timestamp) {
+function formatHours(timestamp) {
   let now = new Date(timestamp);
   let hours = now.getHours();
   if (hours < 10) {
@@ -129,7 +129,7 @@ function showWeatherPlanner(response) {
            <h5 class= "title2">${formatHours(forecast.dt * 1000)}</h5>
               <div class="card-body2">
                 <img src="https://api.openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"/>
-                  <p class=“temp-max”<strong>${Math.round(forecast.main.temp_max)}&#176></strong>
+                  <p class=“temp-max”><strong>${Math.round(forecast.main.temp_max)}&#176</strong></p>
               </div>
         </div>    
       </div>
@@ -144,8 +144,8 @@ function searchCity(city) {
 
   axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemp);
 
-   let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
-   axios.get(`${apiUrl}&appid=${apiKey}`).then(showWeatherPlanner);
+  let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(`${apiUrl}&appid=${apiKey}`).then(showWeatherPlanner);
 }
 
 function showFahrenheitTemperature(event) {
