@@ -51,6 +51,19 @@ function ourTime(timestamp) {
   return `${hours}:${minutes}`;
 }
 
+functions formatHours(timestamp) {
+  let now = new Date(timestamp);
+  let hours = now.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = now.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+ return `${hours}:${minutes}`;
+}
+
 let whatTimeElement = document.querySelector("#what-time");
 whatTimeElement.innerHTML = ourTime(currentDay)
 
@@ -71,6 +84,7 @@ function showTemp(response) {
   document.querySelector("#barom").innerHTML = response.data.main.pressure.toFixed(2);
   document.querySelector("#humid").innerHTML = response.data.main.humidity;
   document.querySelector("#winds").innerHTML = Math.round(response.data.wind.speed);
+  whatDateElement.innerHTML = formatDate(response.data.dt * 1000);
   iconElement.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
@@ -101,11 +115,37 @@ function findCity(event) {
   searchCity(cityInput.value);
 }
 
+function showWeatherPlanner(response) {
+  let forecastElement = document.querySelector("#wx-planner");
+  forecastElement.inerHTML = null;
+  let forecast = null;
+  
+  for (let index = 0; index < 4; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `
+    <div class="col-3">
+      <div class="day-temps">
+        <div class="card">
+           <h5 class= "title2">${formatHours(forecast.dt * 1000(}</h5>
+              <div class="card-body2">
+                <img src="https://api.openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"/>
+                  <p class=“temp-max”<strong>${Math.round(forecast.main.temp_max)}&#176></strong>
+                    <p class=“#temp-min"><em>${Math.round(forecast.main.temp_min)}&#176><em>`;
+              </div>
+        </div>    
+      </div>
+    </div>`
+  }        
+}
+
 function searchCity(city) {
   let apiKey = "06e5d3dda0232566f39a1df37e2d5cdd";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
   axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemp);
+
+   let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+   axios.get(`${apiUrl}&appid=${apiKey}`).then(showWeatherPlanner);
 }
 
 function showFahrenheitTemperature(event) {

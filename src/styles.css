@@ -87,14 +87,14 @@ footer {
   margin-bottom: 0;
   position: relative;
   top: -120px;
-  right: -150px;
+  right: -135px;
   padding: 0;
 }
 .icon {
   image-size: 75px;
   position: relative;
   top: -30px;
-  left: -20px;
+  left: -10px;
 }
 .units {
   position: relative;
