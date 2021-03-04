@@ -126,7 +126,7 @@ function showWeatherPlanner(response) {
     <div class="col-3">
       <div class="day-temps">
         <div class="card">
-           <h5 class= "title2">${formatHours(forecast.dt * 1000(}</h5>
+           <h5 class= "title2">${formatHours(forecast.dt * 1000)}</h5>
               <div class="card-body2">
                 <img src="https://api.openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"/>
                   <p class=“temp-max”<strong>${Math.round(forecast.main.temp_max)}&#176></strong>
