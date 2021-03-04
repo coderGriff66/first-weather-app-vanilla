@@ -117,7 +117,7 @@ function findCity(event) {
 
 function showWeatherPlanner(response) {
   let forecastElement = document.querySelector("#wx-planner");
-  forecastElement.inerHTML = null;
+  forecastElement.innerHTML = null;
   let forecast = null;
   
   for (let index = 0; index < 4; index++) {
