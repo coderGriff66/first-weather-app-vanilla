@@ -138,6 +138,27 @@ function showWeatherPlanner(response) {
   }        
 }
 
+function showWeatherForecast(response) {
+  let forecastElement = document.querySelector("#wx-forecast");
+  forecastElement.innerHTML = null;
+  forecast = null;
+  
+  for (let index = 0; index < 6; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `
+    <div class="col">
+          <div class="card">
+            <h4 class="title3" id="day-one">${formatHours(forecast.dt * 1000)}</h4>
+              <div class="card-body3">
+                <img src="https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"/>
+                 <p class=“temp-max”><strong>${Math.round(forecast.main.temp_max)}&#176</strong> / <em id="temp-min1">${Math.round(forecast.main.temp_min)}</em></p>
+          </div>
+    </div>
+              
+    `;
+  }        
+}
+
 function searchCity(city) {
   let apiKey = "06e5d3dda0232566f39a1df37e2d5cdd";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
