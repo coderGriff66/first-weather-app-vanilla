@@ -39,16 +39,16 @@ let currentDay = new Date();
 whatDateElement.innerHTML = formatDate(currentDay);
 
 function ourTime(timestamp) {
-  let now = new Date(timestamp);
-  let hours = now.getHours();
-  if (hours < 10) {
-    hours = `0${hours}`;
-  }
-  let minutes = now.getMinutes();
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
-  }
-  return `${hours}:${minutes}`;
+//  let now = new Date(timestamp);
+//  let hours = now.getHours();
+//if (hours < 10) {
+//  hours = `0${hours}`;
+//  }
+//  let minutes = now.getMinutes();
+//  if (minutes < 10) {
+//    minutes = `0${minutes}`;
+//}
+  return formatHours(timestamp);
 }
 
 functions formatHours(timestamp) {
@@ -130,11 +130,11 @@ function showWeatherPlanner(response) {
               <div class="card-body2">
                 <img src="https://api.openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"/>
                   <p class=“temp-max”<strong>${Math.round(forecast.main.temp_max)}&#176></strong>
-                    <p class=“#temp-min"><em>${Math.round(forecast.main.temp_min)}&#176><em>`;
               </div>
         </div>    
       </div>
-    </div>`
+    </div>
+    `;
   }        
 }
 
