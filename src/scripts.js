@@ -129,7 +129,7 @@ function showWeatherPlanner(response) {
            <h5 class= "title2">${formatHours(forecast.dt * 1000)}</h5>
               <div class="card-body2">
                 <img src="https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"/>
-                  <p class=“temp-max”><strong>${Math.round(forecast.main.temp_max)}&#176</strong></p>
+                  <p class=“temp-max” id="temp-max"><strong>${Math.round(forecast.main.temp_max)}&#176</strong></p>
               </div>
         </div>    
       </div>
@@ -143,7 +143,7 @@ function showWeatherForecast(response) {
   forecastElement.innerHTML = null;
   forecast = null;
   
-  for (let index = 0; index < 26; index+=5) {
+  for (let index = 5; index < 31; index+=5) {
     forecast = response.data.list[index];
     forecastElement.innerHTML += `
     <div class="col">
@@ -151,7 +151,7 @@ function showWeatherForecast(response) {
             <h4 class="title3" id="day-one">${formatHours(forecast.dt * 1000)}</h4>
               <div class="card-body3">
                 <img src="https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"/>
-                 <p class=“temp-max”><strong>${Math.round(forecast.main.temp_max)}&#176</strong> / <em id="temp-min1">${Math.round(forecast.main.temp_min)}</em></p>
+                 <p class=“temp-max” id="temp-max1><strong>${Math.round(forecast.main.temp_max)}&#176</strong> / <em id="temp-min1">${Math.round(forecast.main.temp_min)}</em></p>
           </div>
     </div>
               
@@ -172,6 +172,10 @@ function searchCity(city) {
 function showFahrenheitTemperature(event) {
 event.preventDefault();
   let temperatureElement = document.querySelector("#temp-now");
+  document.querySelector("#feels").innerHTML = Math.round(response.data.main.feels_like);
+  document.querySelector("#temp-max").innerHTML = Math.round(forecast.main.temp_max);
+  document.querySelector("#temp-max1").innerHTML = Math.round(forecast.main.temp_max1);
+  document.querySelector("#temp-min1").innerHTML = Math.round(forecast.main.temp_min1);
 
   celsius.classList.remove("active");
   fahrenheit.classList.add("active");
@@ -184,7 +188,12 @@ event.preventDefault();
   celsius.classList.add("active");
   fahrenheit.classList.remove("active");
   let = temperatureElement = document.querySelector("#temp-now");
+  document.querySelector("#feels").innerHTML = Math.round(response.data.main.feels_like);
+  document.querySelector("#temp-max").innerHTML = Math.round(forecast.main.temp_max);
+  document.querySelector("#temp-max1").innerHTML = Math.round(forecast.main.temp_max1);
+  document.querySelector("#temp-min1").innerHTML = Math.round(forecast.main.temp_min1);
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
+
 }
 
 let celsiusTemperature = null;
