@@ -137,6 +137,7 @@ function showWeatherPlanner(response) {
     `;
   }        
 }
+showWeatherForecast(response);
 
 function showWeatherForecast(response) {
   let forecastElement = document.querySelector("#wx-forecast");
@@ -148,7 +149,7 @@ function showWeatherForecast(response) {
     forecastElement.innerHTML += `
     <div class="col">
           <div class="card">
-            <h4 class="title3" id="day-one">${formatHours(forecast.dt * 1000)}</h4>
+            <h4 class="title3" id="day-one">${formatDay(forecast.dt * 1000)}</h4>
               <div class="card-body3">
                 <img src="https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"/>
                  <p class=“temp-max” id="temp-max1><strong>${Math.round(forecast.main.temp_max)}&#176</strong> / <em id="temp-min1">${Math.round(forecast.main.temp_min)}</em></p>
@@ -158,6 +159,8 @@ function showWeatherForecast(response) {
     `;
   }        
 }
+
+formatDay(timestamp);
 
 function searchCity(city) {
   let apiKey = "06e5d3dda0232566f39a1df37e2d5cdd";
@@ -172,10 +175,10 @@ function searchCity(city) {
 function showFahrenheitTemperature(event) {
 event.preventDefault();
   let temperatureElement = document.querySelector("#temp-now");
-  document.querySelector("#feels").innerHTML = Math.round(response.data.main.feels_like);
-  document.querySelector("#temp-max").innerHTML = Math.round(forecast.main.temp_max);
-  document.querySelector("#temp-max1").innerHTML = Math.round(forecast.main.temp_max1);
-  document.querySelector("#temp-min1").innerHTML = Math.round(forecast.main.temp_min1);
+  // document.querySelector("#feels").innerHTML = Math.round(response.data.main.feels_like);
+  // document.querySelector("#temp-max").innerHTML = Math.round(forecast.main.temp_max);
+  // document.querySelector("#temp-max1").innerHTML = Math.round(forecast.main.temp_max1);
+  // document.querySelector("#temp-min1").innerHTML = Math.round(forecast.main.temp_min1);
 
   celsius.classList.remove("active");
   fahrenheit.classList.add("active");
@@ -188,10 +191,10 @@ event.preventDefault();
   celsius.classList.add("active");
   fahrenheit.classList.remove("active");
   let = temperatureElement = document.querySelector("#temp-now");
-  document.querySelector("#feels").innerHTML = Math.round(response.data.main.feels_like);
-  document.querySelector("#temp-max").innerHTML = Math.round(forecast.main.temp_max);
-  document.querySelector("#temp-max1").innerHTML = Math.round(forecast.main.temp_max1);
-  document.querySelector("#temp-min1").innerHTML = Math.round(forecast.main.temp_min1);
+  // document.querySelector("#feels").innerHTML = Math.round(response.data.main.feels_like);
+  // document.querySelector("#temp-max").innerHTML = Math.round(forecast.main.temp_max);
+  // document.querySelector("#temp-max1").innerHTML = Math.round(forecast.main.temp_max1);
+  // document.querySelector("#temp-min1").innerHTML = Math.round(forecast.main.temp_min1);
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 
 }
