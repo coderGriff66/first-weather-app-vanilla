@@ -159,8 +159,6 @@ function showWeatherForecast(response) {
   formatDay(timestamp);       
 }
 
-formatDay(timestamp);
-
 function searchCity(city) {
   let apiKey = "06e5d3dda0232566f39a1df37e2d5cdd";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
