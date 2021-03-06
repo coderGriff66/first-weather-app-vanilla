@@ -39,8 +39,8 @@ let currentDay = new Date();
 whatDateElement.innerHTML = formatDate(currentDay);
 
 function formatDay(timestamp); {
-now = new Date(timestamp);
-days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+let now = new Date(timestamp);
+let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 return days[now.getDay()];
 }
 
