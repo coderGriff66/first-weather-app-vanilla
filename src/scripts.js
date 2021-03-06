@@ -38,16 +38,13 @@ let whatDateElement = document.querySelector("#what-date");
 let currentDay = new Date();
 whatDateElement.innerHTML = formatDate(currentDay);
 
+function formatDay(timestamp); {
+now = new Date(timestamp);
+days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+return days[now.getDay()];
+}
+
 function ourTime(timestamp) {
-//  let now = new Date(timestamp);
-//  let hours = now.getHours();
-//if (hours < 10) {
-//  hours = `0${hours}`;
-//  }
-//  let minutes = now.getMinutes();
-//  if (minutes < 10) {
-//    minutes = `0${minutes}`;
-//}
   return formatHours(timestamp);
 }
 
@@ -160,7 +157,7 @@ function showWeatherForecast(response) {
   }        
 }
 
-formatDate(timestamp);
+formatDay(timestamp);
 
 function searchCity(city) {
   let apiKey = "06e5d3dda0232566f39a1df37e2d5cdd";
