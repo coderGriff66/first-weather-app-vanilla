@@ -38,7 +38,7 @@ let whatDateElement = document.querySelector("#what-date");
 let currentDay = new Date();
 whatDateElement.innerHTML = formatDate(currentDay);
 
-function formatDay(timestamp); {
+function formatDay(timestamp) {
 let now = new Date(timestamp);
 let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 return days[now.getDay()];
@@ -132,9 +132,10 @@ function showWeatherPlanner(response) {
       </div>
     </div>
     `;
-  }        
+  } 
+  showWeatherForecast(response);       
 }
-showWeatherForecast(response);
+
 
 function showWeatherForecast(response) {
   let forecastElement = document.querySelector("#wx-forecast");
@@ -154,7 +155,8 @@ function showWeatherForecast(response) {
     </div>
               
     `;
-  }        
+  } 
+  formatDay(timestamp);       
 }
 
 formatDay(timestamp);
