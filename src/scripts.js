@@ -142,16 +142,16 @@ function showWeatherForecast(response) {
   forecastElement.innerHTML = null;
   forecast = null;
   
-  for (let index = 5; index < 31; index+=5) {
+  for (let index = 5; index < 21; index+=4) {
     forecast = response.data.list[index];
     forecastElement.innerHTML += `
     <div class="col">
           <div class="card">
-            <h4 class="title3" id="day-one">${formatDay(forecast.dt * 1000)}</h4>
+            <h5 class="title3" id="day-one">${formatDay(forecast.dt * 1000)}</h5>
               <div class="card-body3">
                 <img src="https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"/>
-                 <p class=“temp-max” id="temp-max1><strong>${Math.round(forecast.main.temp_max)}&#176</strong> / <em id="temp-min1">${Math.round(forecast.main.temp_min)}</em></p>
-          </div>
+                 <div class=“temp-max” id="temp-max><strong>${Math.round(forecast.main.temp_max)}&#176</strong></p><p class= "temp-min" id="temp-min1"><em>${Math.round(forecast.main.temp_min)}&#176</em></p>
+              </div>
     </div>
               
     `;
