@@ -60,10 +60,10 @@ footer {
   background-color: rgb(21, 124, 184);
   color: white;
   padding: 5px 30px;
-  border-radius: 6px;
+  border-radius: 4px;
 }
 .current-button:hover {
-  background: rgb(93, 160, 199);
+  background: rgb(95, 169, 212);
   color: black;
   cursor: pointer;
 }
@@ -80,21 +80,16 @@ footer {
   margin-bottom: 0;
   text-align: center;
 }
-
 .wx-forecast {
   font-size: 15px;
   margin-bottom: 25px;
   text-align: center;
 }
 .card {
+  box-shadow: 8px 8px 8px rgba(12, 0, 124, 0.3);
   border: rgb(12, 0, 124) solid 2px;
   border-radius: 4px;
 }
-/*.big-temp {
-  padding: opx;
-  max-height: 18rem;
-  border: none;
-}*/
 .rightside {
   background: rgba(203, 229, 255, 0.3);
   border: none;
