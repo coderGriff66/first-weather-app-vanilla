@@ -142,7 +142,7 @@ function showWeatherForecast(response) {
   forecastElement.innerHTML = null;
   forecast = null;
   
-  for (let index = 5; index < 21; index += 5 ) {
+  for (let index = 7; index < 29; index += 7 ) {
     forecast = response.data.list[index];
     forecastElement.innerHTML += `
     <div class="col">
