@@ -1,8 +1,13 @@
 body {
-  background-image: url("https://www.pexels.com/photo/white-and-black-map-2127869/");
+  background-color: #6f8193;
 }
 .container {
-  border: rgb(12, 0, 124) solid 4px;
+  background: url("https://images.pexels.com/photos/2627945/pexels-photo-2627945.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=650");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /*background: radial-gradient(#f1f1b9, #f1e83b, #ffe37c, #f3d47f, #fffcd3);*/
+  border: rgb(186, 113, 12) solid 6px;
   border-radius: 8px;
   max-width: 650px;
   max-height: 100%;
@@ -12,12 +17,14 @@ body {
   max-width: 600px;
 }
 h1 {
+  color: floralwhite;
   padding-top: 10px;
   padding-left: 25px;
   padding-bottom: 15px;
 }
 
 h3 {
+  color: floralwhite;
   font-size: 25px;
   font-weight: bold;
   text-align: center;
@@ -27,9 +34,14 @@ h3 {
   text-transform: capitalize;
 }
 h4 {
+  background-color: rgba(0, 66, 105, 0.3);
+  color: floralwhite;
   font-size: 20px;
+  font-weight: bolder;
+  border-radius: 10px;
   text-align: center;
   padding: 10px;
+  margin-bottom: 0;
 }
 h5 {
   font-size: 15px;
@@ -38,6 +50,7 @@ h5 {
   padding-top: 5px;
 }
 footer {
+  color: floralwhite;
   font-size: 12px;
   padding-bottom: 15px;
 }
@@ -47,27 +60,30 @@ footer {
   background-color: rgb(21, 124, 184);
   color: white;
   padding: 5px 30px;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 .current-button:hover {
-  background: rgb(47, 206, 193);
-  color: beige;
+  background: rgb(93, 160, 199);
+  color: black;
   cursor: pointer;
 }
 .card-body2,
 .card-body3 {
   text-align: center;
   font-size: 40px;
-  background: rgba(9, 82, 124, 0.2);
+  background: rgba(0, 66, 105, 0.2);
   padding-top: 5px;
 }
 .wx-planner {
   font-size: 25px;
+  margin-top: 0;
+  margin-bottom: 0;
   text-align: center;
 }
 
 .wx-forecast {
   font-size: 15px;
+  margin-bottom: 25px;
   text-align: center;
 }
 .card {
@@ -80,26 +96,26 @@ footer {
   border: none;
 }*/
 .rightside {
-  background: none;
+  background: rgba(203, 229, 255, 0.3);
   border: none;
 }
 .tempNow {
+  color: floralwhite;
   font-size: 75px;
   margin-bottom: 0;
   position: relative;
-  top: -120px;
-  right: -125px;
+  top: -90px;
+  right: -155px;
   padding: 0;
 }
 .icon {
   image-size: 75px;
   position: relative;
-  top: -30px;
-  left: -30px;
+  top: -5px;
 }
 .units {
   position: relative;
-  top: -210px;
+  top: -190px;
   right: -210px;
 }
 .active {
@@ -114,6 +130,7 @@ footer {
   padding-top: 30px;
 }
 .what-is-today {
+  color: floralwhite;
   font-weight: bold;
   list-style-type: none;
   text-align: right;
@@ -138,29 +155,16 @@ footer {
 }
 .skyNow {
   position: relative;
-  top: -120px;
+  top: -90px;
   font-size: 40px;
 }
-
-.wx-planner {
-  margin-top: 0;
-  padding-top: 10px;
-}
-/*.wx-planner,
-.wx-forecast {
-  font-size: 20px;
-  font-weight: bold;
-  padding-top: 20px;
-  padding-bottom: 25px;
-}*/
-.wx-planner {
-  margin: auto;
-}
-.wx-forecast {
-  margin: auto;
-  padding-bottom: 40px;
+.myname {
+  color: floralwhite;
+  font-weight: bolder;
 }
 .my-info {
+  color: floralwhite;
   font-weight: 500;
+  padding-top: 15px;
   padding-bottom: 25px;
 }
