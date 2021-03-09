@@ -81,6 +81,7 @@ function showTemp(response) {
   document.querySelector("#barom").innerHTML = response.data.main.pressure.toFixed(2);
   document.querySelector("#humid").innerHTML = response.data.main.humidity;
   document.querySelector("#winds").innerHTML = Math.round(response.data.wind.speed);
+  document.querySelector("#temp-low").innerHTML = Math.round(response.data.main.temp_min);
   whatDateElement.innerHTML = formatDate(response.data.dt * 1000);
   iconElement.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
   iconElement.setAttribute("alt", response.data.weather[0].description);
@@ -126,7 +127,7 @@ function showWeatherPlanner(response) {
            <h5 class= "title2">${formatHours(forecast.dt * 1000)}</h5>
               <div class="card-body2">
                 <img src="https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"/>
-                  <div class=“wx-planner” id="temp-max"><strong>${Math.round(forecast.main.temp_max)}°</strong></div>
+                  <div class=“wx-planner” id="temp-max"><span class="planner-temp-max"><strong>${Math.round(forecast.main.temp_max)}°</strong></span></div>
               </div>
         </div>    
       </div>
@@ -150,7 +151,7 @@ function showWeatherForecast(response) {
             <h5 class="title3" id="day-one">${formatDay(forecast.dt * 1000)}</h5>
               <div class="card-body3">
                 <img src="https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"/>
-                 <div class=“wx-forecast temp-max”><strong>${Math.round(forecast.main.temp_max)}°</strong><br />${Math.round(forecast.main.temp_min)}°</div>
+                 <div class=“wx-forecast temp-max1”><span class="forecast-temp-max1"><strong>${Math.round(forecast.main.temp_max)}°</strong><span><br /><span class="forecast-temp-min1")${Math.round(forecast.main.temp_min)}°</span></div>
               </div>
     </div>
               
@@ -172,16 +173,57 @@ function searchCity(city) {
 function showFahrenheitTemperature(event) {
 event.preventDefault();
   let temperatureElement = document.querySelector("#temp-now");
+
+  let feelsLike = document.querySelector("#feels")
+  feelsLIke.innerHTML = Math.round((feelsLike.innerHTML * 9) / 5 + 32);
   
-  //document.querySelector("#feels").innerHTML = Math.round(response.data.main.feels_like);
-  // document.querySelector("#temp-max").innerHTML = Math.round(forecast.main.temp_max);
-  // document.querySelector("#temp-max1").innerHTML = Math.round(forecast.main.temp_max1);
-  // document.querySelector("#temp-min1").innerHTML = Math.round(forecast.main.temp_min1);
+  let tempMin = document.querySelector("#temp-low");
+  tempMin.innerHTML = Math.round((tempLow.innerHTML * 9) / 5 + 32);
 
   celsius.classList.remove("active");
   fahrenheit.classList.add("active");
   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature); 
+
+  let plannerTempMax = document.querySelectorAll(".planner-temp-max");
+  plannerTempMax.forEach(function (item) {
+    let currentTemp = item.innerHTML;
+    item.innerHTML = Math.round((currentTemp * 9) / 5 + 32);
+  });
+
+  let tempMax = document.querySelectorAll(".temp-max");
+  tempMax.forEach(function (item) {
+    let currentTemp = item.innerHTML;
+    item.innerHTML = Math.round((currentTemp * 9) / 5 + 32);
+  });
+
+  let forecastTempMax1 = document.querySelectorAll(".forecast-temp-max1");
+  forecastTempMax1.forEach(function (item) {
+    let currentTemp = item.innerHTML;
+    item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
+  });
+
+  let tempMax1 = document.querySelectorAll(".temp-max1");
+  tempMax1.forEach(function (item) {
+    let currentTemp = item.innerHTML;
+    item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
+  });
+  
+  let forecastTempMin1 = document.querySelectorAll(".forecast-temp-min1");
+  forecastTempMin1.forEach(function (item) {
+    let currentTemp = item.innerHTML;
+    item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
+  });
+
+  let tempMin1 = document.querySelectorAll(".temp-min1");
+  tempMin1.forEach(function (item) {
+    let currentTemp = item.innerHTML;
+    item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
+  });
+
+    celsius.addEventListener("click", showCelsiusTemperature);
+    fahrenheit.removeEventListener("click", showFahrenheitTemperature);
+
 }
 
 function showCelsiusTemperature(event) {
@@ -189,12 +231,52 @@ event.preventDefault();
   celsius.classList.add("active");
   fahrenheit.classList.remove("active");
   let = temperatureElement = document.querySelector("#temp-now");
-  //document.querySelector("#feels").innerHTML = Math.round(response.data.main.feels_like);
-  // document.querySelector("#temp-max").innerHTML = Math.round(forecast.main.temp_max);
-  // document.querySelector("#temp-max1").innerHTML = Math.round(forecast.main.temp_max1);
-  // document.querySelector("#temp-min1").innerHTML = Math.round(forecast.main.temp_min1);
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 
+  let feelsLike = document.querySelector("#feels")
+  feelsLIke.innerHTML = Math.round(((feelsLike.innerHTML -32) * 5) / 9);
+
+  let tempMin = document.querySelector("#temp-low");
+  tempMin.innerHTML = Math.round(((tempLow.innerHTML -32) * 5) / 9);
+
+  let plannerTempMax = document.querySelectorAll(".planner-temp-max");
+  plannerTempMax.forEach(function (item) {
+    let currentTemp = item.innerHTML;
+    item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
+  });
+
+  let tempMax = document.querySelectorAll(".temp-max");
+  tempMax.forEach(function (item) {
+    let currentTemp = item.innerHTML;
+    item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
+  });
+
+  let forecastTempMax1 = document.querySelectorAll(".forecast-temp-max1");
+  forecastTempMax1.forEach(function (item) {
+    let currentTemp = item.innerHTML;
+    item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
+  });
+
+  let tempMax1 = document.querySelectorAll(".temp-max1");
+  tempMax1.forEach(function (item) {
+    let currentTemp = item.innerHTML;
+    item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
+  });
+  
+  let forecastTempMin1 = document.querySelectorAll(".forecast-temp-min1");
+  forecastTempMin1.forEach(function (item) {
+    let currentTemp = item.innerHTML;
+    item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
+  });
+
+  let tempMin1 = document.querySelectorAll(".temp-min1");
+  tempMin1.forEach(function (item) {
+    let currentTemp = item.innerHTML;
+    item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
+  });
+
+    celsius.removeEventListener("click", showCelsiusTemperature);
+    fahrenheit.addEventListener("click", showFahrenheitTemperature);
 }
 
 let celsiusTemperature = null;

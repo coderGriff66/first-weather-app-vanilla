@@ -35,13 +35,15 @@ h3 {
 }
 h4 {
   background-color: rgba(0, 66, 105, 0.3);
+  box-shadow: inset 2px 2px 1px gray;
   color: floralwhite;
   font-size: 20px;
   font-weight: bolder;
   border-radius: 10px;
   text-align: center;
   padding: 10px;
-  margin-bottom: 0;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 h5 {
   font-size: 15px;
