@@ -201,31 +201,32 @@ let forecastElement = document.querySelector
   let forecastTempMax1 = document.querySelectorAll(".forecast-temp-max1");
   forecastTempMax1.forEach(function (item) {
     let currentTemp = item.innerHTML;
-    item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
+    item.innerHTML = Math.round((currentTemp * 9) / 5 + 32);
   });
 
   let tempMax1 = document.querySelectorAll(".temp-max1");
   tempMax1.forEach(function (item) {
     let currentTemp = item.innerHTML;
-    item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
+    item.innerHTML = Math.round((currentTemp * 9) / 5 + 32);
   });
+
   
-  let forecastTempMin1 = document.querySelectorAll(".forecast-temp-min1");
-  forecastTempMin1.forEach(function (item) {
-    let currentTemp = item.innerHTML;
-    item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
+ let forecastTempMin1 = document.querySelectorAll(".forecast-temp-min1");
+ forecastTempMin1.forEach(function (item) {
+   let currentTemp = item.innerHTML;
+    item.innerHTML = Math.round((currentTemp * 9) / 5 + 32);
   });
 
   let tempMin1 = document.querySelectorAll(".temp-min1");
   tempMin1.forEach(function (item) {
     let currentTemp = item.innerHTML;
-    item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
+    item.innerHTML = Math.round((currentTemp * 9) / 5 + 32);
   });
 
-    celsius.addEventListener("click", showCelsiusTemperature);
-    fahrenheit.removeEventListener("click", showFahrenheitTemperature);
+   celsius.addEventListener("click", showCelsiusTemperature);
+   fahrenheit.removeEventListener("click", showFahrenheitTemperature);
 
-}
+ }
 
 function showCelsiusTemperature(event) {
 event.preventDefault(); 
@@ -266,14 +267,14 @@ event.preventDefault();
   
   let forecastTempMin1 = document.querySelectorAll(".forecast-temp-min1");
   forecastTempMin1.forEach(function (item) {
-    let currentTemp = item.innerHTML;
-    item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
+  let currentTemp = item.innerHTML;
+  item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
   });
 
   let tempMin1 = document.querySelectorAll(".temp-min1");
   tempMin1.forEach(function (item) {
-    let currentTemp = item.innerHTML;
-    item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
+  let currentTemp = item.innerHTML;
+  item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
   });
 
     celsius.removeEventListener("click", showCelsiusTemperature);
