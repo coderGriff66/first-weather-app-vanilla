@@ -157,7 +157,7 @@ function showWeatherForecast(response) {
               
     `;
   } 
-  formatDay(timestamp);       
+     
 }
 
 function searchCity(city) {
@@ -175,7 +175,7 @@ event.preventDefault();
   let temperatureElement = document.querySelector("#temp-now");
 
   let feelsLike = document.querySelector("#feels")
-  feelsLIke.innerHTML = Math.round((feelsLike.innerHTML * 9) / 5 + 32);
+  feelsLike.innerHTML = Math.round((feelsLike.innerHTML * 9) / 5 + 32);
   
   let tempMin = document.querySelector("#temp-low");
   tempMin.innerHTML = Math.round((tempLow.innerHTML * 9) / 5 + 32);
@@ -234,7 +234,7 @@ event.preventDefault();
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 
   let feelsLike = document.querySelector("#feels")
-  feelsLIke.innerHTML = Math.round(((feelsLike.innerHTML -32) * 5) / 9);
+  feelsLike.innerHTML = Math.round(((feelsLike.innerHTML -32) * 5) / 9);
 
   let tempMin = document.querySelector("#temp-low");
   tempMin.innerHTML = Math.round(((tempLow.innerHTML -32) * 5) / 9);
