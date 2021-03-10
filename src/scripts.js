@@ -78,7 +78,7 @@ function showTemp(response) {
   celsiusTemperature = response.data.main.temp;
 
   document.querySelector("#feels").innerHTML = Math.round(response.data.main.feels_like);
-  document.querySelector("#barom").innerHTML = response.data.main.pressure.toFixed(2);
+  document.querySelector("#barom").innerHTML = response.data.main.pressure / 100;
   document.querySelector("#humid").innerHTML = response.data.main.humidity;
   document.querySelector("#winds").innerHTML = Math.round(response.data.wind.speed);
   document.querySelector("#temp-low").innerHTML = Math.round(response.data.main.temp_min);
@@ -217,7 +217,7 @@ let forecastElement = document.querySelector
     item.innerHTML = Math.round((currentTemp * 9) / 5 + 32);
   });
 
-  let tempMin1 = document.querySelectorAll(".temp-min1");
+  let tempMin1 = document.querySelectorAll(".temp-min1"); 
   tempMin1.forEach(function (item) {
     let currentTemp = item.innerHTML;
     item.innerHTML = Math.round((currentTemp * 9) / 5 + 32);
