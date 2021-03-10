@@ -127,7 +127,7 @@ function showWeatherPlanner(response) {
            <h5 class= "title2">${formatHours(forecast.dt * 1000)}</h5>
               <div class="card-body2">
                 <img src="https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"/>
-                  <div class=“wx-planner” id="temp-max"><span class="planner-temp-max"><strong>${Math.round(forecast.main.temp_max)}°</strong></span></div>
+                  <div class=“wx-planner”><strong><span class="planner-temp-max">${Math.round(forecast.main.temp_max)}</span>°</strong></span></div>
               </div>
         </div>    
       </div>
@@ -151,7 +151,7 @@ function showWeatherForecast(response) {
             <h5 class="title3" id="day-one">${formatDay(forecast.dt * 1000)}</h5>
               <div class="card-body3">
                 <img src="https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"/>
-                 <div class=“wx-forecast temp-max1”><span class="forecast-temp-max1"><strong>${Math.round(forecast.main.temp_max)}°</strong><span><br /><span class="forecast-temp-min1")${Math.round(forecast.main.temp_min)}°</span></div>
+                 <div class=“wx-forecast temp-max1”><strong><span class="forecast-temp-max1">${Math.round(forecast.main.temp_max)}</span>°</strong></div>
               </div>
     </div>
               
@@ -172,13 +172,14 @@ function searchCity(city) {
 
 function showFahrenheitTemperature(event) {
 event.preventDefault();
+let forecastElement = document.querySelector
   let temperatureElement = document.querySelector("#temp-now");
 
   let feelsLike = document.querySelector("#feels")
   feelsLike.innerHTML = Math.round((feelsLike.innerHTML * 9) / 5 + 32);
   
   let tempMin = document.querySelector("#temp-low");
-  tempMin.innerHTML = Math.round((tempLow.innerHTML * 9) / 5 + 32);
+  tempMin.innerHTML = Math.round((tempMin.innerHTML * 9) / 5 + 32);
 
   celsius.classList.remove("active");
   fahrenheit.classList.add("active");
@@ -237,7 +238,7 @@ event.preventDefault();
   feelsLike.innerHTML = Math.round(((feelsLike.innerHTML -32) * 5) / 9);
 
   let tempMin = document.querySelector("#temp-low");
-  tempMin.innerHTML = Math.round(((tempLow.innerHTML -32) * 5) / 9);
+  tempMin.innerHTML = Math.round(((tempMin.innerHTML -32) * 5) / 9);
 
   let plannerTempMax = document.querySelectorAll(".planner-temp-max");
   plannerTempMax.forEach(function (item) {
