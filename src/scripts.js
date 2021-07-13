@@ -124,17 +124,17 @@ function showWeatherPlanner(response) {
   for (let index = 0; index < 4; index++) {
     forecast = response.data.list[index];
     forecastElement.innerHTML += `
-    <div class="col-3">
-      <div class="day-temps">
-        <div class="card">
+      <div class="col-3">
+        <div class="day-temps">
+         <div class="card">
            <h5 class= "title2">${formatHours(forecast.dt * 1000)}</h5>
               <div class="card-body2">
                 <img src="https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"/>
                   <div class=“wx-planner”><strong><span class="planner-temp-max">${Math.round(forecast.main.temp_max)}</span>°</strong></span></div>
               </div>
-        </div>    
+          </div>    
+        </div>
       </div>
-    </div>
     `;
   } 
   showWeatherForecast(response);       
@@ -149,14 +149,15 @@ function showWeatherForecast(response) {
   for (let index = 7; index < 29; index += 7 ) {
     forecast = response.data.list[index];
     forecastElement.innerHTML += `
-    <div class="col">
+        <div class="col">
           <div class="card">
             <h5 class="title3" id="day-one">${formatDay(forecast.dt * 1000)}</h5>
               <div class="card-body3">
                 <img src="https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"/>
                  <div class=“wx-forecast temp-max1”><strong><span class="forecast-temp-max1">${Math.round(forecast.main.temp_max)}</span>°</strong></div>
               </div>
-    </div>
+          </div>
+        </div>
               
     `;
   } 
@@ -191,38 +192,50 @@ let forecastElement = document.querySelector
 
   let plannerTempMax = document.querySelectorAll(".planner-temp-max");
   plannerTempMax.forEach(function (item) {
+    //grabbing current value to convert
     let currentTemp = item.innerHTML;
+    //convert to fahrenheit
     item.innerHTML = Math.round((currentTemp * 9) / 5 + 32);
   });
 
   let tempMax = document.querySelectorAll(".temp-max");
   tempMax.forEach(function (item) {
+    //grabbing current value to convert
     let currentTemp = item.innerHTML;
+    //convert to fahrenheit
     item.innerHTML = Math.round((currentTemp * 9) / 5 + 32);
   });
 
   let forecastTempMax1 = document.querySelectorAll(".forecast-temp-max1");
   forecastTempMax1.forEach(function (item) {
+    //grabbing current value to convert
     let currentTemp = item.innerHTML;
+    //convert to fahrenheit
     item.innerHTML = Math.round((currentTemp * 9) / 5 + 32);
   });
 
   let tempMax1 = document.querySelectorAll(".temp-max1");
   tempMax1.forEach(function (item) {
+    //grabbing current value to convert
     let currentTemp = item.innerHTML;
+    //convert to fahrenheit
     item.innerHTML = Math.round((currentTemp * 9) / 5 + 32);
   });
 
   
  let forecastTempMin1 = document.querySelectorAll(".forecast-temp-min1");
  forecastTempMin1.forEach(function (item) {
+   //grabbing current value to convert
    let currentTemp = item.innerHTML;
+   //convert to fahrenheit
     item.innerHTML = Math.round((currentTemp * 9) / 5 + 32);
   });
 
   let tempMin1 = document.querySelectorAll(".temp-min1"); 
   tempMin1.forEach(function (item) {
+    //grabbing current value to convert
     let currentTemp = item.innerHTML;
+    //convert to fahrenheit
     item.innerHTML = Math.round((currentTemp * 9) / 5 + 32);
   });
 
@@ -246,38 +259,50 @@ event.preventDefault();
 
   let plannerTempMax = document.querySelectorAll(".planner-temp-max");
   plannerTempMax.forEach(function (item) {
+    //grabbing current value to convert
     let currentTemp = item.innerHTML;
+    //convert to celsius
     item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
   });
 
   let tempMax = document.querySelectorAll(".temp-max");
   tempMax.forEach(function (item) {
+    //grabbing current value to convert
     let currentTemp = item.innerHTML;
+    //convert to celsius
     item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
   });
 
   let forecastTempMax1 = document.querySelectorAll(".forecast-temp-max1");
   forecastTempMax1.forEach(function (item) {
+    //grabbing current value to convert
     let currentTemp = item.innerHTML;
+    //convert to celsius
     item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
   });
 
   let tempMax1 = document.querySelectorAll(".temp-max1");
   tempMax1.forEach(function (item) {
+    //grabbing current value to convert
     let currentTemp = item.innerHTML;
+    //convert to celsius
     item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
   });
   
   let forecastTempMin1 = document.querySelectorAll(".forecast-temp-min1");
   forecastTempMin1.forEach(function (item) {
-  let currentTemp = item.innerHTML;
-  item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
+    //grabbing current value to convert
+    let currentTemp = item.innerHTML;
+    //convert to celsius
+    item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
   });
 
   let tempMin1 = document.querySelectorAll(".temp-min1");
   tempMin1.forEach(function (item) {
-  let currentTemp = item.innerHTML;
-  item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
+    //grabbing current value to convert
+    let currentTemp = item.innerHTML;
+    //convert to celsius
+    item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
   });
 
     celsius.removeEventListener("click", showCelsiusTemperature);
